@@ -1,0 +1,24 @@
+How do you enter Python's interactive mode from the command line? (REPL)
+
+
+
+What do you get when you enter 456//81 into interactive mode and hit enter?
+
+
+
+What is _ in interactive mode?
+
+
+
+What command is used to include external modules in python?
+
+
+
+Run the chapter_1_example.py script.  What does it output?
+
+
+
+What is a tool used to install new python packages on your local machine?
+
+
+
