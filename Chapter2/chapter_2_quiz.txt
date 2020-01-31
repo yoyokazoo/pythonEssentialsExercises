@@ -1,0 +1,49 @@
+What is the difference between an int and a float?
+
+
+
+What are some of the dangers of using floats?
+
+
+
+What is the difference between & and "and"?
+
+
+
+The following line is run in python "x = 1 + 3" -- what type is x?
+
+
+
+The following line is run in python "x = 1 / 3" -- what type is x?
+
+
+
+What is it called when python forces one number to become the type of another number?
+
+
+
+How are tuples declared, and why might you use one?
+
+
+
+You have a bunch of filenames and you want to check if they're JPEGs.  Using slicing, how would you go about doing so?
+
+
+
+For extra credit, what is the function in the str library that could help you do this?
+
+
+
+What is it called when you put a \ in a string to use characters like ' and "?
+
+
+
+What are two of the most common byte encodings?
+
+
+
+Strings are immutable.  What does that mean?
+
+
+
+You have a string, "8.324" -- how would you convert that to a float?
