@@ -1,0 +1,167 @@
+Chapter 3 gets bogged down by going way too in-depth on some things, and not in depth enough on others.  Here's a summary to give you all the info you need:
+
+Chapter 3: Operators, String Formatting, and Regular Expressions
+
+
+---------- OPERATORS ---------- 
+
+
+You've already been using operators, but let's define them so you can get a deeper understanding.  Let's take a look at this simple line:
+
+x = 5
+
+The equals sign is usually called the assignment operator, an it basically means "Take the contents of the right side, and put them in the variable defined on the left side".
+
+In this expression, the right side is pretty trivial, 5.  But you've already been combining operators in more complicated lines.  So:
+
+x = (5 + 5) * 3
+
+In this line, you are using the arithmatic operators + and *, as well as the assignment operator =.  After the entire line is evaluated, 30 is stored in the variable x.
+
+Arithmetic operators are pretty easy to understand since you've learned the math already.  Boolean operators like "and" and "or" work like we discussed previously, and "<", "<=", ">", and ">=" work just like they do in math.
+
+As we discussed before, they also follow the PEMDAS order of operations.  When in doubt, use extra parens to make sure your math works like you expect it to.
+
+In many languages arithmetic operators only work on numbers like ints and floats, but in python you can use them on strings as well.  So you can do:
+
+x = "hello"
+y = "world"
+z = x + " " + y
+
+The value of z is now "hello world".  Similarly, the * operator works:
+
+x = "X"
+y = x * 5
+
+the value of y is now "XXXXX".  I would say in general this rarely comes up, except when you get screwed because what you thought was a number was actually a string instead.  Too cute for me, personally, but I'm sure there are some applications, maybe if you wanted to pad something with spaces.
+
+
+---------- STRING MANIPULATION ---------- 
+
+
+While we're on the topic of string methods, there are a couple particularly useful ones you'll want to know -- .split() and .join().
+
+.split() takes a string and a seperator to create a list of strings.  So if you take:
+
+x = "Randy,Bob,Marcia,Francine"
+names = x.split(',')
+
+The names variable now equals the following list:  ["Randy", "Bob", "Marcia", "Francine"].  This can be useful for splitting up strings and processing words individually.
+
+On the other end of the spectrum, .join() can be used to take a list of strings and combine them into a single one:
+
+x = ["The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog"]
+sentence = " ".join(x)
+
+The sentence variable is now a single string, "The quick brown fox jumped over the lazy dog".  You can use hardcoded strings like above, or a variable that contains a string:
+
+x = ["L", "M", "A", "O"]
+no_space = ""
+space = " "
+
+lmao = no_space.join(x)
+long_lmao = space.join(x)
+
+The no space lmao now equals "LMAO", and the long_lmao now equals "L M A O".  This can be useful when processing text in other languages, since they might not use " " as a seperator between words, for example, or they use commas instead of decimal points in long numbers.
+
+
+---------- STRING FORMATTING ---------- 
+
+
+One of the ways you can print information out is with the string .format() method.  Take a look at the below statement:
+
+name = "Bob"
+account_value = 4700
+dollars_until_credit_card_offer = 300
+
+marketing_message = "Congratulations " + name + ", you have reached a savings milestone of " + account_value + " dollars and only need " + dollars_until_credit_card_offer + " more until you qualify for our incredible offer!"
+
+There are a couple of issues with the above statement.  The excessive number of string additions is not particularly performant.  Also, if you have a bunch of different marketing emails going out with different orders, it can be a hassle to rearrange a long line like that.  You can make it more readable and more maintainable by doing it like below:
+
+name = "Bob"
+account_value = 4700.578
+dollars_until_credit_card_offer = 300
+
+marketing_message = "Congratulations {name} you have reached a savings milestone of {acct_val} dollars and only need {x} more until you qualify for our incredible offer!".format(
+		name=name,
+		acct_val=account_value,
+		x=dollars_until_credit_card_offer
+	)
+
+Not only is this more performant, you can also modify the message without having to deal with all the hassle of " + " + variable + " " etc.  In addition you can, add options to the end to format the individual variables in a specific way, so to show 4700.58 instead of 4700.578, you could use {acct_val:.2f}.  The .2f lets the formatter know you want to show a float rounded to 2 decimals places.  There are a lot more formatting options you can look up and use as needed.
+
+
+---------- PYTHON MULTI-LINE FORMATTING ---------- 
+
+
+You may have noticed above that there was a line with indentations.  But wait!  Indentations mean something special in python, how does that work?
+
+There are a number of ways you can specify multi-line statements in python.  Ideally you'd keep a single statement on a single line, but sometimes you can't.  The string formatting example above would be a good reason.
+
+The python interpreter knows that parentheses have to match up, so oftentimes when you have a function call (like format) with a bunch of arguments, you'll want to put them on a separate line.  So long as the parentheses match up it knows that it's part of the same statement.  Sometimes function calls will get nasty long like below:
+
+x = here_is_my_super_cool_method_that_takes_8_args(
+	1,
+	2,
+	3,
+	"this ones a string",
+	5,
+	pick_up=6,
+	lay_them=7,
+	straight="this one is a string too"
+)
+
+You can also explicitly tell the interpreter to ignore the new line with \.
+
+x = 4 + 5 + 6 + 7 + \
+8 + 9 + 10 + 11 + 12 + \
+13
+
+print(x)
+
+The above works, but is ugly as sin and prone to breaking if someone modifies the line carelessly, so I'd avoid it if possible.
+
+The last way, which only works for strings, is to use triple quotes.  This tells the interpreter to ignore newline characters in the middle of the string:
+
+x = """
+SELECT
+    *
+FROM
+    my_cool_database
+"""
+
+This is a pretty common case when defining long strings or ones where you actually want newlines like the above.
+
+
+---------- REGULAR EXPRESSIONS ---------- 
+
+
+I wouldn't spend the time becoming an expert on regular expressions until you need to at a job, but you do want to be familiar with the concept so you know when the right time to learn it is.
+
+Regular expressions let you create a code to match other strings with.  Phone numbers, for example, follow a pretty common pattern:
+
+123-456-7890
+
+But not all people write their number that way, sometimes it'll look like:
+
+(123)-456-7890
+
+or
+
+1234567890
+
+Regular expressions allow you to write a pattern and then the input string will be matched against that pattern.  So when you're on a website and enter your phone number and a red X shows up until a valid phone number is found? They might be using a regex (shorthand for regular expression)
+
+The regular expression to check for phone numbers might look like:
+
+\(?\d\d\d\)?-?\d\d\d-?\d*
+
+Reading from left to right here are what the characters mean (no need to memorize, just to get an idea of what regexes might look like, so if you encounter one you can ask the right questions/search for help in the right places):
+
+\( -- Parentheses are special characters in regular expressions, so this is escaped
+? -- this means that the previous character ( may or may not exist, so it can either have 0 or 1
+\d -- this matches any digit 0-9
+-? -- Same as above, matches 0 or 1 -
+* -- Takes the previous character and matches any number of them.  So for the regex above it would allow for any amount of numbers at the end (not a correct implementation)
+
+Key takeaway: If you need to match text that follows a perscribed pattern, regexes might be your friend.

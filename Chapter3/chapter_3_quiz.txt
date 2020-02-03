@@ -1,0 +1,1 @@
+On the chapter 2 quiz we looked at some strategies to determine if a filename was a JPEG.  What is another tool that could help us identify JPEG files from their filenames?
