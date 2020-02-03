@@ -1,1 +1,28 @@
+What is the value of x after this expression:
+
+x = ((1 + 5) < 4) or (6 > 5)
+
+What is the value of y after this expression:
+
+y = "Jake Says: " + "cool" * 8
+
+How would you go about taking this string:
+
+names = "tahngarth,oRim,ERTAI,Karn,mirri,CrOvAx,gerrard"
+and turning it into the string below:
+names_fixed = "Tahngarth,Orim,Ertai,Karn,Mirri,Crovax,Gerrard"
+
+Here's a helper method that you can use that takes a list of strings and capitalizes each one:
+
+def capitalize_list(list_of_names):
+    return [name.capitalize() for name in list_of_names]
+
+Use .format() to print out x, y, and z to create the sentence below without changing the values of x, y, or z:
+
+x = "alice"
+y = "bob"
+z = "charlie"
+
+string_to_create = "Charlie and Bob went to the park to ride the slides with Alice."
+
 On the chapter 2 quiz we looked at some strategies to determine if a filename was a JPEG.  What is another tool that could help us identify JPEG files from their filenames?
