@@ -1,0 +1,44 @@
+What is the difference between an int and a float?
+	Integers are exact, whole numbers.  Floats can have decimal places, and are approximations.  Very good ones if you round a bit, but still technically approximations.
+
+What are some of the dangers of using floats?
+	Since they are inexact, you can calculate two floats that should equal one another, but are .0000000001 different so == would return False.
+
+What is the difference between & and "and"?
+	& is the bitwise-and, "and" is the boolean and.
+
+The following line is run in python "x = 1 + 3" -- what type is x?
+	Integer
+
+The following line is run in python "x = 1 / 3" -- what type is x?
+	Float
+
+What is it called when python forces one number to become the type of another number?
+	Type Coercion
+
+How are tuples declared, and why might you use one?
+	(1, 2).  Maybe you're storing a point on a graph (x, y), or a simple data structure ("Hammer", 9.99).  Anything more complicated and you'll probably want a more full featured one.
+
+You have a bunch of filenames and you want to check if they're JPEGs.  Using slicing, how would you go about doing so?
+	filename = "bob.jpg"
+	filetype = filename[:4]
+	if filetype.lower == ".jpg":
+		# do some cool stuff with your .jpg
+		# don't worry if you didn't convert to lowercase
+
+For extra credit, what is the function in the str library that could help you do this?
+	if filename.lower().endswith(".jpg"):
+		# party
+
+What is it called when you put a \ in a string to use characters like ' and "?
+	Escape character
+
+What are two of the most common byte encodings?
+	UTF-8, ASCII
+
+Strings are immutable.  What does that mean?
+	Once they're created they can't be changed. Any operations you do to modify strings return a new string.
+
+You have a string, "8.324" -- how would you convert that to a float?
+	x = float("8.324")
+	This is called "casting" in other languages

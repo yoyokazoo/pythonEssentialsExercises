@@ -35,9 +35,9 @@ print(triangle_size)
 
 # if the enter 3, print:
 
-    #
-   ###
-  #####
+  #
+ ###
+#####
 
 # etc.  Here's some code to get you started:
 
