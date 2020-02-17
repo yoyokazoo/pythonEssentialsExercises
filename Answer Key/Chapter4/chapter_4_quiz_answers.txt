@@ -3,6 +3,7 @@ You have a latitude and longitude coordinate stored in a tuple, like below:
 coordinate = (123.456, 555.555)
 
 How would you assign the first number to a variable latitude and the second number to a variable longitude in a single line?
+	latitude, longitude = coordinate
 
 
 
@@ -11,7 +12,7 @@ Now some extra data has been added to your latitude/longitude tuple.  It now loo
 super_coordinate = (123.456, 555.555, "Seattle", "Washington", 98195)
 
 How would you extract the latitude and longitude into separate variables as you did above, and set the remaning data into a variable named postal_address?
-
+	latitude, longitude, *postal_address = super_coordinate
 
 
 
@@ -24,15 +25,19 @@ for index in range(1, count_up_to + 1):
 print(this_is_the_cumulative_sum_of_all_the_numbers)
 
 But the fourth line is terribly hard to read.  How could we rewrite just the fourth line to make it more readable?
+	this_is_the_cumulative_sum_of_all_the_numbers += index
 
 
 
 Write a short piece of code that takes the user's weight in pounds and converts it to kilograms (2.2 pounds per kg).  Don't worry if the user is mean and enters a non-number.
+	weight = input("How much do you weight?")
+	kg_weight = float(weight) / 2.2
+	print(kg_weight)
 
 
 
 Briefly describe what garbage collection is.
-
+	Garbage collection is when python goes through and frees up any memory that is no longer being used.  It does this by reference counting (keeping track of a number of how many variable hold a reference to that piece of memory.  When that count hits 0 there's no way for the program to access it so it's safe to reclaim).
 
 
 Some super cool dude with super cool sunglasses wrote the below code:
@@ -48,3 +53,9 @@ mySuperCoolFunction()
 print(x)
 
 What gets printed out when the code is run?  Why?
+
+	40
+	20
+	40
+
+	The first print sees the x in the global scope and prints 40.  When mySuperCoolFunction is called, the x getting printed is the one in the local scope.  After the function is run, it prints out 40 since it again is in global scope, and since we set x inside the function its locally scoped.
